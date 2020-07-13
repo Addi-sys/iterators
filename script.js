@@ -145,3 +145,137 @@ console.log(initials)
 let multiplyNum = numbers.map(num => num * 100)
 
 console.log(multiplyNum)
+
+// 12 - sort inventors in alphabetical order
+
+let alphaInventors = inventors.sort((a, b) => {
+    if (a < b) {
+        return -1;
+    } else if (a > b) {
+        return 1;
+    } else {
+        return 0;
+    }
+})
+
+console.log(alphaInventors)
+
+// 13 - sort in reverse
+
+let alphaReverseInventors = inventors.sort((a, b) => {
+    if (a < b) {
+        return 1;
+    } else if (a > b) {
+        return -1;
+    } else {
+        return 0;
+    }
+})
+
+console.log(alphaReverseInventors)
+
+// 14 - sort by length of name, shortest first
+
+let shortName = inventors.sort((a, b) => {
+    if (a.length < b.length) {
+        return -1;
+    } else if (a.length > b.length) {
+        return 1;
+    } else {
+        return 0;
+    }
+
+})
+
+console.log(shortName)
+
+// 15 - sort by length of name, longest first
+
+let longName = inventors.sort((a, b) => {
+    if (a.length < b.length) {
+        return 1;
+    } else if (a.length > b.length) {
+        return -1;
+    } else {
+        return 0;
+    }
+
+})
+
+console.log(longName)
+
+// 16 - find sum of all numbers
+
+let sum = numbers.reduce((total, item) => {
+    return total += item
+})
+
+console.log(sum)
+
+// 17 - find sum of all even numbers
+
+let sumEven = numbers.filter(number => (number % 2) === 0).reduce((total, item) => {
+    return total += item
+})
+
+console.log(sumEven)
+
+// 18 - create string that has first name of every inventor
+
+let stringFirstNames = inventors.map(names => {
+
+    let splitNames = names.split(' ')
+    return splitNames[0]
+})
+
+console.log(stringFirstNames)
+
+let totalFirstNames = stringFirstNames.reduce((total, item) => {
+    return total += item
+})
+
+console.log(totalFirstNames)
+
+// 19 - does any inventor have the letter y in the array
+
+let nameHaveY = inventors.some(item => item.includes('y'))
+
+console.log(nameHaveY)
+
+// 20 - does every inventor have 'e' in the name
+
+let nameHaveE = inventors.every(item => item.includes('e'))
+
+console.log(nameHaveE)
+
+// 21 - does every inventor have a first name longer than 4 chars
+
+let splitWords = inventors.map(item => {
+    let splitItem = item.split(' ')
+    console.log(splitItem)
+    return splitItem
+})
+
+let longerThan4 = splitWords.every(item => item[0] > 4)
+
+console.log(longerThan4)
+
+//  22 - find inventors with middle name
+
+let middleName = inventors.findIndex((item) => {
+    let splitNames = item.split(' ')
+
+    console.log(splitNames)
+    return splitNames.length === 3
+
+})
+
+console.log(middleName)
+
+// 23 - bonus
+
+// 24 - find number divisible by 7
+
+let divisibleBy7 = numbers.findIndex(item => (item % 7 === 0))
+
+console.log(divisibleBy7)
