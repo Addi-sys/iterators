@@ -79,18 +79,18 @@ console.log(doubleDigit)
 
 let primeNumbers = numbers.filter((number) => {
 
-    if (number === 1 || number == 2) {
-        return true
+    if (number < 2) {
+        return false
     }
 
-    for (i = 2; i <= Math.sqrt(number); i++) {
+    for (i = 2; i < number; i++) {
 
         if (number % i === 0) {
             return false;
-        } else {
-            return true
-        };
+        }
+
     }
+    return true
 });
 
 console.log(primeNumbers)
@@ -131,11 +131,17 @@ console.log(upperCaseNames)
 
 let initials = inventors.map(name => {
     let arrayName = name.split(' ')
-        // let isCapital = false
 
-    console.log(arrayName)
+    let result = arrayName.map(char => char.charAt(0)).join('.')
 
-    return arrayName[0].charAt(0) + '.' + arrayName[1].charAt(0)
+    // for (i = 0; i < arrayName.length; i++) {
+    //     result += arrayName[i][0] + '.'
+    // }
+
+    // console.log(arrayName)
+
+    // return arrayName[0].charAt(0) + '.' + arrayName[1].charAt(0)
+    return result
 })
 
 console.log(initials)
@@ -222,17 +228,10 @@ console.log(sumEven)
 
 // 18 - create string that has first name of every inventor
 
-let stringFirstNames = inventors.map(names => {
-
-    let splitNames = names.split(' ')
-    return splitNames[0]
-})
-
-console.log(stringFirstNames)
-
-let totalFirstNames = stringFirstNames.reduce((total, item) => {
-    return total += item
-})
+let totalFirstNames = inventors.reduce((total, item) => {
+    total += item.split(' ')[0]
+    return total
+}, '')
 
 console.log(totalFirstNames)
 
@@ -262,7 +261,7 @@ console.log(longerThan4)
 
 //  22 - find inventors with middle name
 
-let middleName = inventors.findIndex((item) => {
+let middleName = inventors.find((item) => {
     let splitNames = item.split(' ')
 
     console.log(splitNames)
